@@ -1,10 +1,14 @@
+import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 const NavBar = () => {
+    
     return (
         <nav className="navbar">
             <h1>To-Do List</h1>
             <div className="links">
-                <a href="home">Home</a>
-                <a href="tasks">Tasks</a>
+                <Link to="/">Home</Link>
+                <Link to="/TodoForm">Tasks</Link>
             </div>
 
         </nav>

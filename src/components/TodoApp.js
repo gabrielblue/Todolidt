@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import TodoList from "./TodoList";
+import UseFetch from "./UseFetch";
 // import TodoForm from "./TodoForm";
 const Todo = () => {
-    const [todos, setTodos] = useState('');
-
-    useEffect(() => {
-        axios.get("http://localhost:4000/todos")
-         .then((res) => {
-                setTodos(res.data);
-            })
-         .catch((err) => {
-                console.log(err);
-            })
-    })
+    const [data] = UseFetch('http://localhost:4002/todos');
     return (
         <div className="home">
             <h1>To-Do List</h1>
-            {todos && <TodoList todos={todos} />}
+            {data && <TodoList todos={data} title="All Blogs" />}
         </div>
     )
 }
