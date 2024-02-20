@@ -4,7 +4,10 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const TodoForm = () => {
-    const [data, setTodos] = useState('');
+    const [data, setTodos] = useState({
+        title: '',
+        created_at: '',
+    });
 
      const handleChange = (e) => {
         const { name, value } = e.target;
@@ -15,7 +18,12 @@ const TodoForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:4002/todos', data)
+        const currentTime = new Date().toISOString();
+        setTodos(prev => ({
+            ...prev,
+            created_at: currentTime
+        }));
+        axios.post('http://localhost:5000/todoz', data)
             .then(res => {
                 toast.success('New todo has been created successfully', {
                     position: toast.POSITION.TOP_RIGHT,
@@ -39,8 +47,10 @@ const TodoForm = () => {
                 type="text"
                 value={data.title}
                 onChange={handleChange}
-            placeholder="Add New Task"/>
+                    placeholder="Add New Task" />
+                
                 <button type="submit">Add</button>
+                 {/* <div>Created at: {data.created_at ? new Date(data.created_at).toLocaleString() : ''}</div> */}
             </div>
             <ToastContainer/>
         </form>

@@ -1,19 +1,19 @@
 import './App.css';
-import Todo from './components/TodoApp';
 import NavBar from './components/NavBar';
-import { BrowserRouter as Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter as Router ,Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import TodoForm from './components/TodoForm';
+import Home from './components/Home';
 
 
 function App() {
   return (
-    <Route>
+    <Router>
     <div className="App">
       <NavBar />
         <div className='content'>
           <Switch>
             <Route exact path ="/">
-              <Todo />
+              <Home />
             </Route>
             <Route path="/TodoForm">
               <TodoForm/>
@@ -21,7 +21,7 @@ function App() {
             </Switch>
         </div>
     </div>
-    </Route>
+    </Router>
   );
 }
 

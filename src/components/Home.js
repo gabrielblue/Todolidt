@@ -1,13 +1,13 @@
 import TodoList from "./TodoList";
 import UseFetch from "./UseFetch";
 // import TodoForm from "./TodoForm";
-const Todo = () => {
-    const [data] = UseFetch('http://localhost:4002/todos');
+const Home = () => {
+    const {data} = UseFetch('http://localhost:5000/todoz');
     return (
         <div className="home">
             <h1>To-Do List</h1>
-            {data && <TodoList todos={data} title="All Blogs" />}
+            {data && <TodoList todoz={data} title="All Here" />}
         </div>
     )
 }
-export default Todo;
+export default Home;
