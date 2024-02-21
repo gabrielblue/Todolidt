@@ -8,7 +8,7 @@ const NavBar = () => {
             <h1>To-Do List</h1>
             <div className="links">
                 <Link to="/">Home</Link>
-                <Link to="/TodoForm">Tasks</Link>
+                <Link to="/TodoForm">New Tasks</Link>
             </div>
 
         </nav>

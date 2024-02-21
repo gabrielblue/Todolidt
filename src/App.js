@@ -18,6 +18,9 @@ function App() {
             <Route path="/TodoForm">
               <TodoForm/>
             </Route>
+            {/* <Route exact path="/Todo-details/: id" component={TodoDetails}>
+              <TodoDetails/>
+            </Route> */}
             </Switch>
         </div>
     </div>

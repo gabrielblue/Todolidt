@@ -9,4 +9,4 @@ const UseFetch = (url) => {
     }, [url])
     return {data};
 }
-export default UseFetch
+export default UseFetch;

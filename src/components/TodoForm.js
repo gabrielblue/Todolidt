@@ -18,12 +18,7 @@ const TodoForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const currentTime = new Date().toISOString();
-        setTodos(prev => ({
-            ...prev,
-            created_at: currentTime
-        }));
-        axios.post('http://localhost:5000/todoz', data)
+        axios.post('http://localhost:5000/todos', data)
             .then(res => {
                 toast.success('New todo has been created successfully', {
                     position: toast.POSITION.TOP_RIGHT,
