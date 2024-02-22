@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const TodoForm = () => {
     const [data, setTodos] = useState({
         title: '',
-        created_at: '',
     });
 
      const handleChange = (e) => {
@@ -45,7 +44,6 @@ const TodoForm = () => {
                     placeholder="Add New Task" />
                 
                 <button type="submit">Add</button>
-                 {/* <div>Created at: {data.created_at ? new Date(data.created_at).toLocaleString() : ''}</div> */}
             </div>
             <ToastContainer/>
         </form>
