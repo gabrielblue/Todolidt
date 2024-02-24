@@ -17,6 +17,12 @@ const TodoForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (data.title.length === 0) {
+            toast.error('Please enter a title', {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 3000,
+            })
+        } else (
         axios.post('http://localhost:5000/todos', data)
             .then(res => {
                 toast.success('New todo has been created successfully', {
@@ -31,7 +37,7 @@ const TodoForm = () => {
             })
         })
         
-    };
+    )};
 
     return (
         <form onSubmit={handleSubmit}>
