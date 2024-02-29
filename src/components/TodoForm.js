@@ -23,7 +23,7 @@ const TodoForm = () => {
                 autoClose: 3000,
             })
         } else (
-        axios.post('http://localhost:5000/todos', data)
+        axios.post('http://localhost:4000/todos', data)
             .then(res => {
                 toast.success('New todo has been created successfully', {
                     position: toast.POSITION.TOP_RIGHT,
@@ -41,18 +41,21 @@ const TodoForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="form">
+        <div className="form">
+            <div className="combined-input">
                 <input
                     name="title"
-                type="text"
-                value={data.title}
-                onChange={handleChange}
-                    placeholder="Add New Task" />
-                
+                    type="text"
+                    value={data.title}
+                    onChange={handleChange}
+                    placeholder="Add New Task"
+                />
                 <button type="submit">Add</button>
             </div>
-            <ToastContainer/>
-        </form>
+        </div>
+        <ToastContainer/>
+    </form>
+    
     )
 }
 

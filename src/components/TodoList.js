@@ -4,9 +4,8 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import UseFetch from "./UseFetch";
 
-
 const TodoList = () => {
-    const { data: todos } = UseFetch('http://localhost:5000/todos'); // Removed id from URL
+    const { data: todos } = UseFetch('http://localhost:4000/todos'); 
     const history = useHistory();
 
     const handleClick = (e, id) => {
@@ -15,8 +14,9 @@ const TodoList = () => {
     }
 
     const handleDelete = (id) => { 
+        window.location.reload(true)
         
-        axios.delete('http://localhost:5000/todos/' + id)
+        axios.delete('http://localhost:4000/todos/' + id)
             .then(res => {
                 alert('Todo Deleted Successfully');
                 history.push('/' ); 
